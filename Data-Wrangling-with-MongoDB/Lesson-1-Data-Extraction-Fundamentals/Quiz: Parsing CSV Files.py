@@ -18,9 +18,9 @@ def parse_file(datafile):
     with open(datafile, "r") as f:
         header = f.readline()
         header = header.split(',')
-        header[-1] = header[-1][:-1]
+        header = map(str.strip, header)
         count = 0
-        for line in f.readlines()[:]:
+        for line in f.readlines():
             d = {}
             for num, val in enumerate(header):
                 d[val] = line.split(',')[num].rstrip()
